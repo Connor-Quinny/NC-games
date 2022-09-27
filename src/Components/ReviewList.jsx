@@ -7,7 +7,6 @@ const ReviewList = () => {
     
     const [reviewList, setReviewList] = useState([])
     const {category} = useParams()
-    console.log(category)
   
     
     useEffect(() => {

@@ -9,7 +9,6 @@ const ReviewCategories = () => {
     useEffect(() => {
         axios.get("https://be-nc-games-api.herokuapp.com/api/categories").then((res) => {
             setCategoryList(res.data.categories)
-            console.log(categoryList, "<<")
         }) 
     },[])
 
