@@ -1,20 +1,30 @@
-import { useEffect, useState } from "react"
+import { useState, useEffect } from "react"
+import { Link, useParams } from "react-router-dom"
 import axios from "axios"
-import { Link } from "react-router-dom"
+import ReviewCategories from "./ReviewCategories"
 
 const ReviewList = () => {
+    
     const [reviewList, setReviewList] = useState([])
-
+    const {category} = useParams()
+    console.log(category)
+  
+    
     useEffect(() => {
-        axios.get("https://be-nc-games-api.herokuapp.com/api/reviews").then((res) => {
+        if(category) {
+        axios.get(`https://be-nc-games-api.herokuapp.com/api/reviews?category=${category}`).then((res) => {
             setReviewList(res.data.reviews)
-            
-        }) 
-    })
-
+        })} else {
+            axios.get(`https://be-nc-games-api.herokuapp.com/api/reviews`).then((res) => {
+                setReviewList(res.data.reviews)
+            })
+        }
+    },[category])
+  
+  
     return (
         <section>
-            
+            <ReviewCategories />
                 {reviewList.map((review) => {
                     return (
                         <ol>

@@ -9,7 +9,6 @@ const ReviewCard = () => {
     useEffect(() => {
         axios.get(`https://be-nc-games-api.herokuapp.com/api/reviews/${review_id}`).then((res) => {
             setReview(res.data.review)
-            console.log(review)
         })
     }, [review_id])
 
