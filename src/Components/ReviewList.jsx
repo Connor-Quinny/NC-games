@@ -28,7 +28,7 @@ const ReviewList = () => {
                     return (
                         <ol>
                             <p key={review.review_id}><Link to={`/reviews/${review.review_id}`}>{review.title}</Link></p>
-                            <img className="reviewImg" src={review.review_img_url} alt={`${review.title}`}></img>
+                            <img key="img" className="reviewImg" src={review.review_img_url} alt={`${review.title}`}></img>
                         </ol>
                         
                     )
