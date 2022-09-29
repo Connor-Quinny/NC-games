@@ -1,21 +1,25 @@
-import axios from "axios"
 import { useEffect,useState } from "react"
 import { Link } from "react-router-dom"
+import { getCategories } from "../utils/api"
 
 const ReviewCategories = () => {
 
     const [categoryList, setCategoryList] = useState([])
 
     useEffect(() => {
-        axios.get("https://be-nc-games-api.herokuapp.com/api/categories").then((res) => {
-            setCategoryList(res.data.categories)
-        }) 
+        getCategories()
+        .then(({categories}) => {
+            setCategoryList(categories)
+        }).catch((err) => {
+            if (err)
+            return alert("Something went wrong")
+        })
     },[])
 
     return (
-        <section>
+        <section className="revCat">
              {categoryList.map((category) => { 
-                    return <Link to={`/reviews/categories/${category.slug}`}><p className="category" >{category.slug}</p></Link> 
+                    return (<ul key={category.slug}><Link to={`/reviews/categories/${category.slug}`}><p className="category" >{category.slug}</p></Link></ul>) 
                 })}
         </section>
     )

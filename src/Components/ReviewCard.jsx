@@ -1,32 +1,32 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { getReviewById, patchVote } from "../utils/api"
 
 const ReviewCard = () => {
     const [review, setReview] = useState({})
     const {review_id} = useParams()
-    const [vote, setVotes] = useState(0)
+    const [vote, setVotes] = useState(review.votes)
 
     useEffect(() => {
-        axios.get(`https://be-nc-games-api.herokuapp.com/api/reviews/${review_id}`).then((res) => {
-            setReview(res.data.review)
-            setVotes(res.data.review.votes)
+        getReviewById(review_id).then(({review}) => {
+            setReview(review)
+            setVotes(review.votes)
         })
     }, [review_id])
     
     const addVote = () => {
-        const reqBody = {inc_votes: 1}
-        axios.patch(`https://be-nc-games-api.herokuapp.com/api/reviews/${review_id}`, reqBody).then(({data}) => {
-            setVotes(data.review.votes)
-        }).catch((err) => {
+        setVotes(vote + 1)
+        patchVote(review_id).catch((err) => {
             if (err) {
-               return alert("Error: Bad request")
+                setVotes(vote -1)
+               return alert("Error: Bad Request")
             }
         })
     }
 
     return (
-    <header>
+    <header class="revCard">
         <h2>{review.title}</h2>
         <img className="reviewImg" src={review.review_img_url} alt={`${review.title}`}></img>
         <p>Owner: {review.owner}</p>

@@ -3,9 +3,7 @@ import Navbar from './Components/Navbar';
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import ReviewList from './Components/ReviewList';
 import ReviewCard from './Components/ReviewCard';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import ReviewCategories from './Components/ReviewCategories';
+// import ReviewCategories from './Components/ReviewCategories';
 
 function App() {
 
