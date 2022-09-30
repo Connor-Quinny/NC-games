@@ -3,9 +3,7 @@ import Navbar from './Components/Navbar';
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import ReviewList from './Components/ReviewList';
 import ReviewCard from './Components/ReviewCard';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import ReviewCategories from './Components/ReviewCategories';
+import Error from './Components/Error';
 
 function App() {
 
@@ -14,11 +12,12 @@ function App() {
     <BrowserRouter>
     <div className="App">
       <Navbar />
-      {/* <ReviewCategories reviewList={reviewList}/> */}
       <Routes>
         <Route path='/reviews' element={<ReviewList />}></Route>
         <Route path='/reviews/:review_id' element={<ReviewCard />}></Route>
         <Route path='/reviews/categories/:category' element={<ReviewList />}></Route>
+        <Route path="*" element={<Error />}></Route>
+        <Route c></Route>
       </Routes>
     </div>
     </BrowserRouter>

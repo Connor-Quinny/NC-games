@@ -37,6 +37,35 @@
   }
 }
 
+.flexbox-header {
+    display: grid;
+    grid-template-columns: repeat(2fr, 40px);
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#northgamers {
+
+}
+
 .reviewImg {
   width: 150px;
+}
+
+.revCard {
+  text-align: center;
+}
+
+.revCat ul {
+  display: inline-block;
+}
+
+.revList ul, li{
+  padding: 0px;
+  margin: 0px;
+  border: none;
 }
