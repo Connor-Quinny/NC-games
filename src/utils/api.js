@@ -34,3 +34,9 @@ export const patchVote = (review_id) => {
         return res.data
     })
 }
+
+export const getComments = (review_id) => {
+    return gameApi.get(`/reviews/${review_id}/comments`).then((res) => {
+        return res.data
+    })
+}
