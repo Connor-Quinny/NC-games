@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { getReviewById, patchVote } from "../utils/api"
-import Error from "./Error"
+import Comments from "./Comments"
 
 const ReviewCard = () => {
     const [review, setReview] = useState({})
@@ -30,7 +30,7 @@ const ReviewCard = () => {
         })
     }
     if (error === true) {
-        return <img src="https://i.stack.imgur.com/6M513.png" alt="404 error"></img>
+        return <img className="error-img" src="https://i.stack.imgur.com/6M513.png" alt="404 error"></img>
     }
 
     return (
@@ -42,6 +42,7 @@ const ReviewCard = () => {
         <p>Designer: {review.designer}</p>
         <p>{review.review_body}</p>
         <button onClick={() => addVote()}>{vote} 👍</button>
+        <Comments />
     </header>)
 }
 
