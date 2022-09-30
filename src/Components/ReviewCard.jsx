@@ -1,17 +1,22 @@
-import axios from "axios"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { getReviewById, patchVote } from "../utils/api"
+import Error from "./Error"
 
 const ReviewCard = () => {
     const [review, setReview] = useState({})
     const {review_id} = useParams()
     const [vote, setVotes] = useState(review.votes)
+    const [error, setError] = useState(false)
 
     useEffect(() => {
         getReviewById(review_id).then(({review}) => {
             setReview(review)
             setVotes(review.votes)
+        }).catch((err) => {
+            if (err) {
+                setError(true)
+            }
         })
     }, [review_id])
     
@@ -23,6 +28,9 @@ const ReviewCard = () => {
                return alert("Error: Bad Request")
             }
         })
+    }
+    if (error === true) {
+        return <img src="https://i.stack.imgur.com/6M513.png" alt="404 error"></img>
     }
 
     return (

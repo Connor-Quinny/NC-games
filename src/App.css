@@ -60,6 +60,12 @@
   text-align: center;
 }
 
-.revCat {
-  text-align: center;
+.revCat ul {
+  display: inline-block;
+}
+
+.revList ul, li{
+  padding: 0px;
+  margin: 0px;
+  border: none;
 }
