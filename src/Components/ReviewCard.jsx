@@ -1,18 +1,24 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { getReviewById, patchVote } from "../utils/api"
+import CommentAdder from "./CommentAdder"
 import Comments from "./Comments"
+import Error from "./Error"
+import Loading from "./Loading"
 
 const ReviewCard = () => {
     const [review, setReview] = useState({})
     const {review_id} = useParams()
     const [vote, setVotes] = useState(review.votes)
     const [error, setError] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
+        setLoading(true)
         getReviewById(review_id).then(({review}) => {
             setReview(review)
             setVotes(review.votes)
+            setLoading(false)
         }).catch((err) => {
             if (err) {
                 setError(true)
@@ -30,19 +36,25 @@ const ReviewCard = () => {
         })
     }
     if (error === true) {
-        return <img className="error-img" src="https://i.stack.imgur.com/6M513.png" alt="404 error"></img>
+        return Error()
+    }
+
+    if (loading === true) {
+        return Loading()
     }
 
     return (
-    <header class="revCard">
+    <header className="revCard">
         <h2>{review.title}</h2>
         <img className="reviewImg" src={review.review_img_url} alt={`${review.title}`}></img>
+        <div className="Info">
         <p>Owner: {review.owner}</p>
         <p>Category: {review.category}</p>
         <p>Designer: {review.designer}</p>
-        <p>{review.review_body}</p>
+        </div>
+        <p className="paragraph">{review.review_body}</p>
         <button onClick={() => addVote()}>{vote} 👍</button>
-        <Comments />
+        <Comments className="comments"/>
     </header>)
 }
 

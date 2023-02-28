@@ -1,4 +1,5 @@
 import './App.css';
+import './RevCard.css'
 import Navbar from './Components/Navbar';
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import ReviewList from './Components/ReviewList';
@@ -17,7 +18,7 @@ function App() {
         <Route path='/reviews/:review_id' element={<ReviewCard />}></Route>
         <Route path='/reviews/categories/:category' element={<ReviewList />}></Route>
         <Route path="*" element={<Error />}></Route>
-        <Route c></Route>
+        <Route ></Route>
       </Routes>
     </div>
     </BrowserRouter>

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const gameApi = axios.create({
-    baseURL: "https://be-nc-games-api.herokuapp.com/api"
+    baseURL: "http://localhost:9090"
 })
 
 export const getReviews = () => {
@@ -38,5 +38,11 @@ export const patchVote = (review_id) => {
 export const getComments = (review_id) => {
     return gameApi.get(`/reviews/${review_id}/comments`).then((res) => {
         return res.data
+    })
+}
+
+export const postComment = (review_id, newComment) => {
+    return gameApi.post(`/reviews/${review_id}/comments`, {username: "Me", body: newComment}).then(({data}) => {
+        return data
     })
 }

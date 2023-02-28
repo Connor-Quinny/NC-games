@@ -1,10 +1,12 @@
 import { useEffect,useState } from "react"
 import { Link } from "react-router-dom"
 import { getCategories } from "../utils/api"
+import Loading from "./Loading"
 
 const ReviewCategories = () => {
 
     const [categoryList, setCategoryList] = useState([])
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         getCategories()
@@ -15,6 +17,7 @@ const ReviewCategories = () => {
             return alert("Something went wrong")
         })
     },[])
+
 
     return (
         <section className="revCat">
