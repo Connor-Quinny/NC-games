@@ -1,0 +1,107 @@
+/* .revCard {
+    background-color: #fc3838;
+    padding-top: 0.1px;
+    display: grid; 
+    grid-template-columns: 1fr 1.7fr 0.1fr 1.7fr 1fr; 
+    grid-template-rows: 0.5fr 0.8fr 1.3fr 0.1fr 2.9fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      ". Header Header Header ."
+      ". Info . Picture ."
+      ". Paragraph Paragraph Paragraph ."
+      ". . Like-button . ."
+      ". . . . ."; 
+  }
+
+.revCard img {
+    width: 15rem;
+    height: 15rem;
+}
+
+.revCard h2 {
+    color: white;
+    text-decoration: underline;
+    grid-area: Header;
+}
+
+.revCard img {
+    border-style: solid;
+    grid-area: 2 / 4 / 3 / 5;
+}
+
+.Info  {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.revCard p {
+    grid-area: 3 / 2 / 4 / 5;
+}
+
+.revCard button {
+    grid-area: 4 / 3 / 5 / 4;
+}
+
+.comments {
+    grid-area: 5 / 2 / 6 / 5
+}
+ */
+
+ .revCard {  
+    background-color: #fc3838;
+    display: grid;
+    grid-template-columns: 1.3fr 1.5fr 1.2fr 0.3fr 1.2fr 1.5fr 1.3fr;
+    grid-template-rows: 0.6fr 0.8fr 0.8fr 0.1fr 2.7fr;
+    grid-auto-columns: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". revCard-h2 revCard-h2 revCard-h2 revCard-h2 revCard-h2 ."
+      ". . Info . revCard-img . ."
+      ". paragraph paragraph paragraph paragraph paragraph ."
+      ". . . revCard-button . . ."
+      ". comments comments comments comments comments .";
+  }
+  
+  .revCard h2 { 
+    grid-area: revCard-h2; 
+    color: white;
+    text-decoration: underline;
+    }
+  
+  .Info { 
+    grid-area: Info; 
+    /* padding-top: 1.5rem; */
+    font-size: 1.3rem;
+    border-style: solid;
+    border-radius: 10%;
+}
+  
+  .revCard img { 
+    grid-area: revCard-img; 
+    width: 10rem;
+    height: 10rem;
+    justify-self: center;
+    border-style: solid;
+}
+  
+  .paragraph { 
+    grid-area: paragraph;
+    margin-top: 3.5rem;
+}
+  
+  .revCard button { 
+    grid-area: revCard-button;
+     }
+  
+  .comments { 
+    grid-area: comments; 
+}
+  
+.commentsCard {
+    border-style: solid;
+}
+
+#newComments{
+    width: 10px;
+    height: 10px;
+}

@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom"
+import ReviewCategories from "./ReviewCategories"
 
 const Navbar = () => {
 
     return ( 
-<header className="flexbox-header">
-    <h1 id="northGamers">NorthGamers</h1> 
-    <nav className="navbar">
-        <Link to="/">Home</Link>
-        <Link to="/reviews">Reviews</Link>
-    </nav>
+<header className="header">
+ <Link to={'/reviews'}> <img src={require(`/Users/connorquinn/Desktop/Northcoders/frontend/nc-games/src/Icons/northgamers.png`)} className="logo"></img></Link>  
+     <ReviewCategories />
 </header>)
 }
 

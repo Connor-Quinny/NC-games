@@ -37,23 +37,24 @@
   }
 }
 
-.flexbox-header {
-    display: grid;
-    grid-template-columns: repeat(2fr, 40px);
-}
-
 .navbar {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#northgamers {
+.header {
+  margin-top: 2em;
+}
+
+.logo {
 
 }
 
 .reviewImg {
-  width: 150px;
+  width: 10rem;
+  height: 8rem;
+  border-radius: 50%;
 }
 
 .revCard {
@@ -62,15 +63,68 @@
 
 .revCat ul {
   display: inline-block;
+  color: #61dafb;
 }
 
-.revList ul, li{
-  padding: 0px;
-  margin: 0px;
-  border: none;
+.revCat {
+  background: #212121;
+  margin-top: 2rem;
+}
+
+.reviewsList {
+  background-color: #fc3838;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding-bottom: 30%;
+}
+
+.reviewsList ul{
+  list-style: none;
+}
+
+#listTitle{
+  border-style: solid;
+  border-bottom-width: 0.15rem;
+  background-color: #212121;
+  border-color: black;
+}
+#listImage {
+  width: 25rem;
+  height: 10rem;
+  padding-top: 1rem;
+  border-style: solid;
+  border-top-width: 0px;
+  background-color: #212121;
+  border-color: black;
+}
+
+.reviewsListUl p {
+  color: white;
+}
+
+.catTitle {
+  text-decoration: none;
+  color: white;
+}
+
+a:link, a:visited {
+  /* text-decoration: none; */
+  color: white;
+}
+
+a:hover, a:active {
+  color: #fc3838;
 }
 
 .error-img {
-  width: 100%;
-  height: 100%;
+  margin-top: 35px;
+  width: 30%;
+  height: 40%;
+}
+
+.LoadBG {
+  background-color: #fc3838;
+  padding-bottom: 100vh;
+  padding-top: 10px;
 }
