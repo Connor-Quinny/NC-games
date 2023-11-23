@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const gameApi = axios.create({
-    baseURL: "https://be-nc-games-api.herokuapp.com/"
+    baseURL: "https://chatmat.onrender.com/api/"
 })
 
 export const getReviews = () => {
@@ -13,12 +13,14 @@ export const getReviews = () => {
 export const getReviewsByCategory = (category) => {
     return gameApi.get("/reviews", {params: {category}})
     .then((res) => {
+        console.log(res.data)
         return res.data
     })
 }
 
 export const getCategories = () => {
     return gameApi.get("/categories").then((res) => {
+        console.log(res.data)
         return res.data
     })
 }

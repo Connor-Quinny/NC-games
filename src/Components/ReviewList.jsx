@@ -31,7 +31,7 @@ const ReviewList = () => {
     if (loading === true) {
         return Loading()
     }
-  
+  console.log(reviewList);
     return (
         <section className="reviewsList">
                 {reviewList.map((review) => {
